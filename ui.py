@@ -112,7 +112,7 @@ ShopItem.btn_tl = (ShopItem.size[0] - ShopItem.btn_size[0] - 20,\
 class ReloadBoost(ShopItem):
 
     def __init__(self, gdata):
-        super().__init__(gdata, "Reload Faster", 200)
+        super().__init__(gdata, "Reload Faster", 2)
 
     def on_buy(self, mpos):
         if self.gdata.player.money >= self.cost:
@@ -127,7 +127,7 @@ class ReloadBoost(ShopItem):
 class TurnBoost(ShopItem):
     def __init__(self, gdata):
         self.boost = 2
-        super().__init__(gdata, "Turn Faster", 200)
+        super().__init__(gdata, "Turn Faster", 2)
 
     def on_buy(self, mpos):
         if self.gdata.player.money >= self.cost:
@@ -141,7 +141,7 @@ class TurnBoost(ShopItem):
 class SpreadShot(ShopItem):
     def __init__(self, gdata):
         self.bought = False
-        super().__init__(gdata, "Triple Shot", 500)
+        super().__init__(gdata, "Triple Shot", 5)
 
     def on_buy(self, mpos):
         if self.gdata.player.money >= self.cost and not self.bought:
@@ -153,7 +153,7 @@ class SpreadShot(ShopItem):
 
 class Shockwave(ShopItem):
     def __init__(self, gdata):
-        super().__init__(gdata, "Shockwave", 1000)
+        super().__init__(gdata, "Shockwave", 10)
 
     def on_buy(self, mpos):
         if self.gdata.player.money >= self.cost:
@@ -166,7 +166,7 @@ class Shockwave(ShopItem):
 class Piercing(ShopItem):
     def __init__(self, gdata):
         self.bought = False
-        super().__init__(gdata, "Piercing Shot", 1500)
+        super().__init__(gdata, "Piercing Shot", 15)
 
     def on_buy(self, mpos):
         if self.gdata.player.money >= self.cost and not self.bought:

@@ -35,11 +35,11 @@ class Player:
 
     def __init__(self, gdata):
         self.gdata = gdata
-        self.avel = 5
-        self.reload_time = 1000
+        self.avel = 10
+        self.reload_time = 500
         self.health = 100
         self.max_health = 100
-        self.money = 0
+        self.money = 100
 
         self.spread_shot = False
 
@@ -259,5 +259,5 @@ class EnemyGenerator:
         x += settings.WIN_SIZE[0] // 2
         y += settings.WIN_SIZE[1] // 2
         self.gdata.enemies.add(Enemy(self.gdata, (x, y), ang))
-        self.spawn_count += 1
+        self.spawn_count += 10
 
