@@ -12,20 +12,21 @@ def angle(base, pt):
     diff = pt[0] - base[0], pt[1] - base[1]
     arg = m.atan2(diff[1], diff[0])
     return -m.degrees(arg)
-
+flat_angle=180
+round_angle=360
 def rad_dist(ang1, ang2):
     dist = ang2 - ang1
-    if dist > 180:
-        dist = dist - 360
-    elif dist < -180:
-        dist = 360 + dist
+    if dist > flat_angle:
+        dist = dist - round_angle
+    elif dist < -flat_angle:
+        dist = round_angle + dist
     return dist
 
 def norm_angle(ang):
-    while ang > 180:
-        ang -= 360
-    while ang < -180:
-        ang += 360
+    while ang > flat_angle:
+        ang -= round_angle
+    while ang < -flat_angle:
+        ang += round_angle
     return ang
 
 def sign(x):
@@ -82,12 +83,13 @@ class Player:
         self.angle = norm_angle(self.angle + ang)
 
     def on_fire(self):
+        variable_1=5
         self.gdata.bullets.add(Bullet(self.gdata, settings.WIN_CENTER, self.angle))
         if self.spread_shot:
             self.gdata.bullets.add(Bullet(self.gdata, settings.WIN_CENTER, \
-                norm_angle(self.angle + 5)))
+                norm_angle(self.angle + variable_1)))
             self.gdata.bullets.add(Bullet(self.gdata, settings.WIN_CENTER, \
-                norm_angle(self.angle - 5)))
+                norm_angle(self.angle - variable_1)))
         self.reload_timer = self.reload_time
 
     def take_damage(self, dmg):
